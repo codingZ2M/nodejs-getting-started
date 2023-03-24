@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 
 require("dotenv").config();
+
 const port = process.env.PORT || 5000;
 
 // Define a custom middleware function
@@ -21,9 +22,9 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
   });
   
-  app.get('/users/:userId', (req, res) => {
-    const { userId } = req.params;
-      res.send(`User ID: ${userId}`);
+  app.get('/users/:userId/:email', (req, res) => {
+    const { userId, email } = req.params;
+      res.send(`User ID: ${userId} Email: ${email}`);
  });
  
  app.post('/users', (req, res) => {
